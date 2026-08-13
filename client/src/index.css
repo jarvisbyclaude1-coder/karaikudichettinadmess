@@ -1,0 +1,271 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --radius: 0.65rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.235 0.015 65);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: oklch(0.98 0.001 286.375);
+  --secondary-foreground: oklch(0.4 0.015 65);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.141 0.005 285.823);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+@@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * The Tamarind House: contemporary Chettinad heritage rendered in tamarind maroon, rice-paper ivory, antique copper, and restrained tile geometry.
+ * Cormorant Garamond carries the restaurant's editorial warmth; DM Sans is the crisp, modern service voice.
+ */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", "Noto Serif Tamil", serif;
+  --font-sans: "DM Sans", "Noto Sans Tamil", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root { --radius: 0.25rem; --background: oklch(0.957 0.012 85); --foreground: oklch(0.225 0.036 23); --card: oklch(1 0 0); --card-foreground: oklch(0.225 0.036 23); --popover: oklch(1 0 0); --popover-foreground: oklch(0.225 0.036 23); --primary: oklch(0.3 0.09 22); --primary-foreground: oklch(0.98 0.01 84); --secondary: oklch(0.9 0.035 80); --secondary-foreground: oklch(0.26 0.04 24); --muted: oklch(0.91 0.022 77); --muted-foreground: oklch(0.48 0.036 25); --accent: oklch(0.72 0.09 63); --accent-foreground: oklch(0.22 0.03 22); --destructive: oklch(0.55 0.18 25); --destructive-foreground: oklch(1 0 0); --border: oklch(0.78 0.032 72); --input: oklch(0.8 0.028 72); --ring: oklch(0.43 0.11 25); }
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), a[href], select:not(:disabled), input, textarea { @apply cursor-pointer; }
+  ::selection { background: #641b20; color: #fffaf2; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[10px] font-bold uppercase tracking-[0.2em]; }
+  .nav-link { @apply text-[11px] font-bold uppercase tracking-[0.15em] transition-colors duration-200 hover:text-[#bc8a51]; }
+  .nav-link-active { @apply text-[#bc8a51] after:mx-auto after:mt-1.5 after:block after:h-px after:w-4 after:bg-current; }
+  .brand-lockup { @apply flex flex-col font-display text-[21px] leading-[0.76] tracking-[-0.05em]; }
+  .brand-lockup span:last-child { @apply ml-2 mt-1 border-l border-current/50 pl-2 text-[18px] tracking-[-0.04em]; }
+  .language-switch { @apply rounded-full border px-3 py-2 text-[10px] font-bold tracking-[0.12em] transition-all duration-200 hover:-translate-y-px; }
+  .button-primary { @apply inline-flex items-center gap-2 bg-[#641b20] px-5 py-3 text-xs font-bold uppercase tracking-[0.13em] text-[#fffaf2] shadow-[0_5px_15px_rgba(74,26,28,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#7b282d] active:scale-[0.97]; }
+  .button-copper { @apply inline-flex items-center gap-2 bg-[#bc8a51] px-5 py-3 text-xs font-bold uppercase tracking-[0.13em] text-[#321519] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d3a56d] active:scale-[0.97]; }
+  .button-ghost { @apply inline-flex items-center gap-2 border border-white/35 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.13em] text-[#fffaf2] backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white/60 hover:bg-white/12 active:scale-[0.97]; }
+  .button-outline { @apply inline-flex items-center gap-2 border border-[#641b20]/35 px-5 py-3 text-xs font-bold uppercase tracking-[0.13em] text-[#641b20] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#641b20] hover:text-[#fffaf2] disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0 disabled:hover:bg-transparent disabled:hover:text-[#641b20]; }
+  .editorial-link { @apply inline-flex items-center gap-1 border-b border-[#9a6a4a] pb-1 text-[11px] font-bold uppercase tracking-[0.17em] text-[#641b20] transition-all duration-200 hover:gap-2 hover:border-[#641b20]; }
+  .footer-link { @apply transition-colors duration-200 hover:text-[#d3a56d]; }
+  .tile-rule { height: 10px; background-image: linear-gradient(45deg, transparent 42%, rgba(100,27,32,.22) 43%, rgba(100,27,32,.22) 57%, transparent 58%), linear-gradient(-45deg, transparent 42%, rgba(100,27,32,.22) 43%, rgba(100,27,32,.22) 57%, transparent 58%); background-size: 14px 14px; background-position: 0 0, 7px 0; opacity: .75; }
+  .menu-paper-frame { border: 1px solid rgba(154,106,74,.52); background-image: linear-gradient(45deg, transparent 42%, rgba(154,106,74,.16) 43%, rgba(154,106,74,.16) 57%, transparent 58%), linear-gradient(-45deg, transparent 42%, rgba(154,106,74,.16) 43%, rgba(154,106,74,.16) 57%, transparent 58%); background-size: 16px 16px; background-position: 0 0, 8px 0; }
+  .reservation-frame { border: 1px solid rgba(224,178,120,.42); border-bottom-width: 0; }
+  .menu-stationery { border: 1px solid rgba(100,27,32,.22); background: linear-gradient(90deg, rgba(154,106,74,.1) 1px, transparent 1px) 0 0/100% 100%, #f7f2e8; box-shadow: 8px 8px 0 rgba(100,27,32,.07); }
+  .reservation-paper { border: 1px solid rgba(100,27,32,.2); background-color: #fffdfa; background-image: linear-gradient(rgba(154,106,74,.09) 1px, transparent 1px); background-size: 100% 32px; box-shadow: 10px 12px 0 rgba(154,106,74,.13); }
+  .place-card { border: 1px solid rgba(154,106,74,.65); padding: 0.75rem; box-shadow: 8px 8px 0 rgba(100,27,32,.08); }
+  .hero-arch { border-radius: 18rem 18rem 0 0; }
+  .hero-image-motion { animation: hero-pan 18s cubic-bezier(0.23, 1, 0.32, 1) infinite alternate; transform-origin: 65% 50%; }
+  .motion-reveal { animation: reveal-rise 720ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  .motion-delay-1 { animation-delay: 100ms; }
+  .motion-delay-2 { animation-delay: 210ms; }
+  .motion-delay-3 { animation-delay: 320ms; }
+  .motion-delay-4 { animation-delay: 430ms; }
+  .tile-orbit { animation: soft-orbit 14s ease-in-out infinite alternate; }
+  .dish-card { transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1), filter 280ms ease; }
+  .dish-card:hover { transform: translateY(-8px) rotate(-0.3deg); filter: brightness(1.04); }
+  .info-tile { @apply flex items-center gap-3 border border-[#641b20]/12 bg-[#f7f2e8]/80 p-4 text-[#641b20]; }
+  .info-tile span { @apply flex flex-col text-sm; }
+  .info-tile small { @apply mt-0.5 text-xs text-[#785e5f]; }
+  .contact-action { @apply flex w-full items-center gap-4 border border-[#641b20]/15 bg-white p-4 text-left text-[#641b20] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9a6a4a] hover:shadow-[0_10px_20px_rgba(75,26,28,0.08)]; }
+  .contact-action span { @apply flex flex-1 flex-col text-sm; }
+  .contact-action small { @apply mt-1 text-xs text-[#785e5f]; }
+  .form-field { @apply flex flex-col gap-2; }
+  .form-field label { @apply text-[10px] font-bold uppercase tracking-[0.13em] text-[#785e5f]; }
+  .form-field input, .form-field select, .form-field textarea { @apply w-full border border-[#641b20]/18 bg-[#fffdfa] px-3.5 py-3 text-sm text-[#321519] outline-none transition-colors duration-200 placeholder:text-[#9c8483] focus:border-[#641b20]; }
+}
+
+@keyframes reveal-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hero-pan { from { transform: scale(1.02) translate3d(-0.4%, 0, 0); } to { transform: scale(1.09) translate3d(1.4%, -0.6%, 0); } }
+@keyframes soft-orbit { from { transform: rotate(-2deg) translateY(0); opacity: .42; } to { transform: rotate(3deg) translateY(-12px); opacity: .78; } }
+
+@media (prefers-reduced-motion: no-preference) { .group:hover .group-hover\:scale-\[1\.04\] { transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
